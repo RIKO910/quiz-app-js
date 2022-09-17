@@ -33,3 +33,37 @@ const quizData = [
         correct:'a'
     }
 ]
+const questionEL =document.getElementById('question');
+const a_text =document.getElementById('a_test');
+const b_text =document.getElementById('b_test');
+const c_text =document.getElementById('c_test');
+const d_text =document.getElementById('d_test');
+const submitbtn=document.getElementById('submit');
+
+let currentQuestion =0 ;
+
+loadQuiz();
+
+function loadQuiz(){
+    const currentQuizData =quizData[currentQuestion]
+    questionEL.innerHTML=currentQuizData.question;
+    a_text.innerHTML=currentQuizData.a;
+    b_text.innerHTML=currentQuizData.b;
+    c_text.innerHTML=currentQuizData.c;
+    d_text.innerHTML=currentQuizData.d;
+    
+}
+
+submitbtn.addEventListener("click",()=>
+{   
+    currentQuestion++;
+    if(currentQuestion<quizData.length)
+    {
+        loadQuiz();
+    }
+    else{
+        alert('okkk finished|')
+    }
+
+
+})
